@@ -48,8 +48,6 @@ class Product
     public function __construct()
     {
         $this->media = new ArrayCollection();
-        $this->opinions = new ArrayCollection();
-        $this->orders = new ArrayCollection();
     }
 
     public function getId(): ?int
