@@ -45,16 +45,6 @@ class Product
      */
     private $media;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Opinion::class, mappedBy="product", orphanRemoval=true)
-     */
-    private $opinions;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Order::class, mappedBy="product")
-     */
-    private $orders;
-
     public function __construct()
     {
         $this->media = new ArrayCollection();
@@ -140,63 +130,6 @@ class Product
             if ($medium->getProduct() === $this) {
                 $medium->setProduct(null);
             }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Opinion[]
-     */
-    public function getOpinions(): Collection
-    {
-        return $this->opinions;
-    }
-
-    public function addOpinion(Opinion $opinion): self
-    {
-        if (!$this->opinions->contains($opinion)) {
-            $this->opinions[] = $opinion;
-            $opinion->setProduct($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOpinion(Opinion $opinion): self
-    {
-        if ($this->opinions->removeElement($opinion)) {
-            // set the owning side to null (unless already changed)
-            if ($opinion->getProduct() === $this) {
-                $opinion->setProduct(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Order[]
-     */
-    public function getOrders(): Collection
-    {
-        return $this->orders;
-    }
-
-    public function addOrder(Order $order): self
-    {
-        if (!$this->orders->contains($order)) {
-            $this->orders[] = $order;
-            $order->addProduct($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOrder(Order $order): self
-    {
-        if ($this->orders->removeElement($order)) {
-            $order->removeProduct($this);
         }
 
         return $this;

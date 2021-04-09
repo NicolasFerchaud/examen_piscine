@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    {% for category in categoryList %}
+        <ul>
+            <li>{{ category.name }}</li>
+
+            {% for child in category.children %}
+                {% if child.isPublished %}
+                    <ul>
+                        <li>{{ child.name }}</li>
+                    </ul>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock main %}
