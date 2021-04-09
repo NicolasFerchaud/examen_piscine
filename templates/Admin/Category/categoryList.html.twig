@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <a href="{{ path('categories/insert') }}"><input type="button" value="Créer une catégorie"></a>
+    {% for category in categoryList %}
+        <ul>
+            <li>{{ category.name }}</li>
+            <a href="{{ path('categories/update',{'id':category.id}) }}"><input type="button" value="Modifier"></a>
+            <a id="delete" href="{{ path('categories/delete',{'id':category.id}) }}"><input type="button" value="Supprimer"></a>
+            {% for child in category.children %}
+                <ul>
+                    <li>{{ child.name }}</li>
+                    <a href="{{ path('categories/update',{'id':child.id}) }}"><input type="button" value="Modifier"></a>
+                    <a id="delete" href="{{ path('categories/delete',{'id':child.id}) }}"><input type="button" value="Supprimer"></a>
+                </ul>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+{% endblock main %}
