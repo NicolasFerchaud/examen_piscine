@@ -19,8 +19,7 @@ class CategoryController extends AbstractController
         );
 
         return $this->render('Public/Category/categoryList.html.twig', [
-            'categoryList' => $categories,
-            'current_menu' => 'categories'
+            'categoryList' => $categories
         ]);
     }
 }

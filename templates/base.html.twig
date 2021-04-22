@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     {# je regarde si des messages flashs ont été ajoutés à la session, si oui je les affiche #}
     {% for message in app.flashes('success') %}
     <div class="text-success">
@@ -23,36 +22,75 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ path('home') }}">À mon image</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
+                    {#<li class="nav-item">
                         <a class="nav-link {% if current_menu is defined and current_menu == 'categories' %}active{% endif %}" aria-current="page" href="{{ path('public/categories/list') }}">Catégories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                    </li>#}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'faire_part' %}active{% endif %} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Faire part
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ path('public/faire_part/wedding') }}">Mariage</a></li>
+                            <li><a class="dropdown-item" href="{{ path('public/faire_part/birth') }}">Naissance</a></li>
+                            <li><a class="dropdown-item" href="{{ path('public/faire_part/baptism') }}">Baptême</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
+                            Album grossesse
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="#">Grossesse unique</a></li>
+                            <li><a class="dropdown-item" href="#">Grossesse gémellaire</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Album naisssance
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Grossesse unique</a></li>
+                            <li><a class="dropdown-item" href="#">Grossesse gémellaire</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Impression photos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Photos 10x15 cm</a></li>
+                            <li><a class="dropdown-item" href="#">Poster A3</a></li>
+                            <li><a class="dropdown-item" href="#">Boule de Noël</a></li>
+                            <li><a class="dropdown-item" href="#">Hexagone</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Support d'entreprise
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Planches tarifaire</a></li>
+                            <li><a class="dropdown-item" href="#">Cartes de visite</a></li>
+                            <li><a class="dropdown-item" href="#">Annonces publicitaire</a></li>
+                            <li><a class="dropdown-item" href="#">Flyers</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Cartes
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Anniversaire</a></li>
+                            <li><a class="dropdown-item" href="#">Babyshower</a></li>
+                            <li><a class="dropdown-item" href="#">Noël</a></li>
+                            <li><a class="dropdown-item" href="#">Nouvel an</a></li>
+                            <li><a class="dropdown-item" href="#">Félicitations</a></li>
+                            <li><a class="dropdown-item" href="#">Remerciements</a></li>
+                        </ul>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>
