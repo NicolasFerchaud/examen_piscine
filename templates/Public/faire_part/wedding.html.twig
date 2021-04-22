@@ -5,5 +5,14 @@
 {% block main %}
     <div class="container mt-4">
         <h1>Faire part de mariage</h1>
+        <div class="row">
+            {% for faire_part in faire_parts %}{#boucle pour afficher tous les produits du tableau#}
+                <div class="col-sm-12 col-lg-6">
+                        <h2>{{ faire_part.name }}</h2>
+                        <p>{{ faire_part.description }}</p>
+                        <p>{{ faire_part.price }}</p>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

@@ -3,18 +3,23 @@
 
 namespace App\Controller\Front\Product;
 
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\ProductRepository;
 
 class FairePartController extends AbstractController
 {
     /**
      * @Route("/faire_part/wedding", name="public/faire_part/wedding")
      */
-    public function FairePartWedding()
+    public function FairePartWedding(ProductRepository $productRepository)
     {
+        $wedding = $productRepository->findBy(
+            ['category' => 92]
+        );
+
         return $this->render('Public/faire_part/wedding.html.twig',[
+            'faire_parts' => $wedding,
             'current_menu' => 'faire_part'
         ]);
     }
