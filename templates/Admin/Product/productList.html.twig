@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block main %}
+    <a href="{{ path('productList') }}"><input type="button" value="Créer une catégorie"></a>
+    {% for product in productList %}
+        <ul>
+            <li>{{ product.name }}</li>
+            <a href="{{ path('productUpdate',{'id':product.id}) }}"><input type="button" value="Modifier"></a>
+            <a id="delete" href="{{ path('productDelete',{'id':product.id}) }}"><input type="button" value="Supprimer"></a>
+        </ul>
+    {% endfor %}
+
+{% endblock main %}

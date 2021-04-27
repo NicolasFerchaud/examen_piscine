@@ -22,7 +22,8 @@ class AdminProductController extends AbstractController
         $productList = $productRepository->findAll();
 
         return $this->render('Admin/Product/productList.html.twig',[
-            'productList' => $productList
+            'productList' => $productList,
+            'current_menu' => 'products'
         ]);
     }
 
@@ -35,7 +36,7 @@ class AdminProductController extends AbstractController
     )
     {
         $product = new Product();
-        $productForm = $this->createForm(opinionType::class, $product);
+        $productForm = $this->createForm(ProductType::class, $product);
         $productForm->handleRequest($request);
         if ($productForm->isSubmitted() && $productForm->isValid()) {
             $product = $productForm->getData();
@@ -66,7 +67,7 @@ class AdminProductController extends AbstractController
             throw $this->createNotFoundException('Produit non trouvé');
         }
 
-        $productForm = $this->createForm(opinionType::class, $product);
+        $productForm = $this->createForm(ProductType::class, $product);
         $productForm->handleRequest($request);
         if ($productForm->isSubmitted() && $productForm->isValid()) {
             $product = $productForm->getData();
@@ -78,7 +79,7 @@ class AdminProductController extends AbstractController
             return $this->redirectToRoute('productList');
         }
         return $this->render('Admin/Product/productUpdate.html.twig',[
-            'productInsert' => $productForm->createView()
+            'productUpdate' => $productForm->createView()
         ]);
     }
 

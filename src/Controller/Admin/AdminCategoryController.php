@@ -25,7 +25,8 @@ class AdminCategoryController extends AbstractController
         );
 
         return $this->render('Admin/Category/categoryList.html.twig',[
-            'categoryList' => $categories
+            'categoryList' => $categories,
+            'current_menu' => 'categories'
         ]);
     }
 
@@ -81,7 +82,7 @@ class AdminCategoryController extends AbstractController
             return $this->redirectToRoute('categories/list');
         }
         return $this->render('Admin/Category/categoryUpdate.html.twig',[
-            'categoryInsert' => $categoryForm->createView()
+            'categoryUpdate' => $categoryForm->createView()
         ]);
     }
 

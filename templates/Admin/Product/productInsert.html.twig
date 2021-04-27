@@ -1,0 +1,45 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block main %}
+    <h1>Créer un produit</h1>
+    {{ form_start(productInsert) }}
+
+    <div class="mb-3">
+        <div class="text-danger">
+            {{ form_errors(productInsert.name) }}
+        </div>
+        {{ form_label(productInsert.name, 'Titre', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(productInsert.name, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+        <div class="text-danger">
+            {{ form_errors(productInsert.description) }}
+        </div>
+        {{ form_label(productInsert.description, 'Description', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(productInsert.description, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+        <div class="text-danger">
+            {{ form_errors(productInsert.price) }}
+        </div>
+        {{ form_label(productInsert.price, 'Prix', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(productInsert.price, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+        <div class="text-danger">
+            {{ form_errors(productInsert.category) }}
+        </div>
+        {{ form_label(productInsert.category, 'Catégorie', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(productInsert.category, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_widget(productInsert.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+    </div>
+
+    {{ form_end(productInsert) }}
+
+{% endblock main %}
