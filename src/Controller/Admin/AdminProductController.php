@@ -48,7 +48,8 @@ class AdminProductController extends AbstractController
             return $this->redirectToRoute('productList');
         }
         return $this->render('Admin/Product/productInsert.html.twig',[
-            'productInsert' => $productForm->createView()
+            'productInsert' => $productForm->createView(),
+            'current_menu' => 'products'
         ]);
     }
 
@@ -79,7 +80,8 @@ class AdminProductController extends AbstractController
             return $this->redirectToRoute('productList');
         }
         return $this->render('Admin/Product/productUpdate.html.twig',[
-            'productUpdate' => $productForm->createView()
+            'productUpdate' => $productForm->createView(),
+            'current_menu' => 'products'
         ]);
     }
 

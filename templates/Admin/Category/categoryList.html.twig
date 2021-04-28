@@ -1,20 +1,41 @@
 {% extends 'baseAdmin.html.twig' %}
 
+{% block title %}Liste des catégories{% endblock %}
+
 {% block main %}
-    <a href="{{ path('categories/insert') }}"><input type="button" value="Créer une catégorie"></a>
-    {% for category in categoryList %}
-        <ul>
-            <li>{{ category.name }}</li>
-            <a href="{{ path('categories/update',{'id':category.id}) }}"><input type="button" value="Modifier"></a>
-            <a id="delete" href="{{ path('categories/delete',{'id':category.id}) }}"><input type="button" value="Supprimer"></a>
-            {% for child in category.children %}
-                <ul>
-                    <li>{{ child.name }}</li>
-                    <a href="{{ path('categories/update',{'id':child.id}) }}"><input type="button" value="Modifier"></a>
-                    <a id="delete" href="{{ path('categories/delete',{'id':child.id}) }}"><input type="button" value="Supprimer"></a>
-                </ul>
-            {% endfor %}
-        </ul>
-    {% endfor %}
+    <div class="container mt-4">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Nom de la catégorie</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for category in categoryList %}
+                    <tr>
+                        <td class="align-middle">{{ category.name }}</td>
+                        <td>
+                            <a href="{{ path('categories/update',{'id':category.id}) }}"><input type="button" class="btn btn-warning" value="Modifier"></a>
+                            <a id="delete" href="{{ path('categories/delete',{'id':category.id}) }}"><input type="button" class="btn btn-danger" value="Supprimer"></a>
+                        </td>
+                        <tbody>
+                            {% for child in category.children %}
+                                <tr>
+                                    <td class="text-primary pl-5 align-middle">{{ child.name }}</td>
+                                    <td>
+                                        <a href="{{ path('categories/update',{'id':child.id}) }}"><input type="button" class="btn btn-warning" value="Modifier"></a>
+                                        <a id="delete" href="{{ path('categories/delete',{'id':child.id}) }}"><input type="button" class="btn btn-danger" value="Supprimer"></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-right">
+            <a href="{{ path('categories/insert') }}"><input type="button" class="btn btn-success" value="Créer une catégorie"></a>
+        </div>
 
 {% endblock main %}

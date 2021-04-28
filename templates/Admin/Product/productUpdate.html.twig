@@ -1,45 +1,50 @@
 {% extends 'baseAdmin.html.twig' %}
 
+{% block title %}Modifier un produit{% endblock %}
+
 {% block main %}
-    <h1>Créer un produit</h1>
-    {{ form_start(productUpdate) }}
 
-    <div class="mb-3">
-        <div class="text-danger">
-            {{ form_errors(productUpdate.name) }}
+    <div class="container mt-4">
+        <h1>Créer un produit</h1>
+        {{ form_start(productUpdate) }}
+
+        <div class="mb-3">
+            <div class="text-danger">
+                {{ form_errors(productUpdate.name) }}
+            </div>
+            {{ form_label(productUpdate.name, 'Titre', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(productUpdate.name, {'attr': {'class': 'form-control'}}) }}
         </div>
-        {{ form_label(productUpdate.name, 'Titre', {'label_attr': {'class': 'form-label'}}) }}
-        {{ form_widget(productUpdate.name, {'attr': {'class': 'form-control'}}) }}
-    </div>
 
-    <div class="mb-3">
-        <div class="text-danger">
-            {{ form_errors(productUpdate.description) }}
+        <div class="mb-3">
+            <div class="text-danger">
+                {{ form_errors(productUpdate.description) }}
+            </div>
+            {{ form_label(productUpdate.description, 'Description', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(productUpdate.description, {'attr': {'class': 'form-control'}}) }}
         </div>
-        {{ form_label(productUpdate.description, 'Description', {'label_attr': {'class': 'form-label'}}) }}
-        {{ form_widget(productUpdate.description, {'attr': {'class': 'form-control'}}) }}
-    </div>
 
-    <div class="mb-3">
-        <div class="text-danger">
-            {{ form_errors(productUpdate.price) }}
+        <div class="mb-3">
+            <div class="text-danger">
+                {{ form_errors(productUpdate.price) }}
+            </div>
+            {{ form_label(productUpdate.price, 'Prix', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(productUpdate.price, {'attr': {'class': 'form-control'}}) }}
         </div>
-        {{ form_label(productUpdate.price, 'Prix', {'label_attr': {'class': 'form-label'}}) }}
-        {{ form_widget(productUpdate.price, {'attr': {'class': 'form-control'}}) }}
-    </div>
 
-    <div class="mb-3">
-        <div class="text-danger">
-            {{ form_errors(productUpdate.category) }}
+        <div class="mb-3">
+            <div class="text-danger">
+                {{ form_errors(productUpdate.category) }}
+            </div>
+            {{ form_label(productUpdate.category, 'Catégorie', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(productUpdate.category, {'attr': {'class': 'form-control'}}) }}
         </div>
-        {{ form_label(productUpdate.category, 'Catégorie', {'label_attr': {'class': 'form-label'}}) }}
-        {{ form_widget(productUpdate.category, {'attr': {'class': 'form-control'}}) }}
-    </div>
 
-    <div class="mb-3">
-        {{ form_widget(productUpdate.submit, {'attr': {'class': 'btn btn-primary'}}) }}
-    </div>
+        <div class="mb-3">
+            {{ form_widget(productUpdate.soumettre, {'attr': {'class': 'btn btn-primary'}}) }}
+        </div>
 
-    {{ form_end(productUpdate) }}
+        {{ form_end(productUpdate) }}
+    </div>
 
 {% endblock main %}

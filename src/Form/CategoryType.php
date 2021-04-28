@@ -30,7 +30,7 @@ class CategoryType extends AbstractType
                 'placeholder' => ' '
             ] )
             ->add('isPublished')
-            ->add('submit', SubmitType::class)
+            ->add('soumettre', SubmitType::class)
         ;
     }
 

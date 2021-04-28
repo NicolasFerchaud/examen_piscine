@@ -1,13 +1,32 @@
 {% extends 'baseAdmin.html.twig' %}
 
+{% block title %}Liste des produits{% endblock %}
+
 {% block main %}
-    <a href="{{ path('productList') }}"><input type="button" value="Créer une catégorie"></a>
-    {% for product in productList %}
-        <ul>
-            <li>{{ product.name }}</li>
-            <a href="{{ path('productUpdate',{'id':product.id}) }}"><input type="button" value="Modifier"></a>
-            <a id="delete" href="{{ path('productDelete',{'id':product.id}) }}"><input type="button" value="Supprimer"></a>
-        </ul>
-    {% endfor %}
+    <div class="container mt-4">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nom du produit</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in productList %}
+                    <tr>
+                        <td class="align-middle">{{ product.name }}</td>
+                        <td>
+                            <a href="{{ path('productUpdate',{'id':product.id}) }}"><input type="button" class="btn btn-warning" value="Modifier"></a>
+                            <a id="delete" href="{{ path('productDelete',{'id':product.id}) }}"><input type="button" class="btn btn-danger" value="Supprimer"></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-right">
+            <a href="{{ path('productInsert') }}"><input type="button" class="btn btn-success" value="Créer un produit"></a>
+        </div>
+    </div>
+
 
 {% endblock main %}

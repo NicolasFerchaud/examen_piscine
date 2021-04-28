@@ -32,7 +32,7 @@ class ProductType extends AbstractType
                 /*'choices' => $this->categoryRepository->findBy(["parent"=>null]),
                 'placeholder' => ' '*/
                 ])
-            ->add('submit', SubmitType::class)
+            ->add('soumettre', SubmitType::class)
         ;
     }
 

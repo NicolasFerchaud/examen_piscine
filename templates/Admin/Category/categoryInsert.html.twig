@@ -1,34 +1,39 @@
 {% extends 'baseAdmin.html.twig' %}
 
+{% block title %}Ajouter une catégories{% endblock %}
+
 {% block main %}
-    <h1>Créer une catégorie</h1>
-    {{ form_start(categoryInsert) }}
 
-    <div class="mb-3">
-        <div class="text-danger">
-            {{ form_errors(categoryInsert.name) }}
+    <div class="container mt-4">
+        <h1>Créer une catégorie</h1>
+        {{ form_start(categoryInsert) }}
+
+        <div class="mb-3">
+            <div class="text-danger">
+                {{ form_errors(categoryInsert.name) }}
+            </div>
+            {{ form_label(categoryInsert.name, 'Titre', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(categoryInsert.name, {'attr': {'class': 'form-control'}}) }}
         </div>
-        {{ form_label(categoryInsert.name, 'Titre', {'label_attr': {'class': 'form-label'}}) }}
-        {{ form_widget(categoryInsert.name, {'attr': {'class': 'form-control'}}) }}
-    </div>
 
-    <div class="mb-3">
-        <div class="text-danger">
-            {{ form_errors(categoryInsert.parent) }}
+        <div class="mb-3">
+            <div class="text-danger">
+                {{ form_errors(categoryInsert.parent) }}
+            </div>
+            {{ form_label(categoryInsert.parent, 'Sous catégorie de...', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(categoryInsert.parent, {'attr': {'class': 'form-control'}}) }}
         </div>
-        {{ form_label(categoryInsert.parent, 'Sous catégorie de...', {'label_attr': {'class': 'form-label'}}) }}
-        {{ form_widget(categoryInsert.parent, {'attr': {'class': 'form-control'}}) }}
-    </div>
 
-    <div class="mb-3">
-        {{ form_label(categoryInsert.isPublished, 'Publier', {'label_attr': {'class': 'form-label'}}) }}
-        {{ form_widget(categoryInsert.isPublished, {'attr': {'class': 'form-check-label'}}) }}
-    </div>
+        <div class="mb-3">
+            {{ form_label(categoryInsert.isPublished, 'Publier', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(categoryInsert.isPublished, {'attr': {'class': 'form-check-label'}}) }}
+        </div>
 
-    <div class="mb-3">
-        {{ form_widget(categoryInsert.submit, {'attr': {'class': 'btn btn-primary'}}) }}
-    </div>
+        <div class="mb-3">
+            {{ form_widget(categoryInsert.soumettre, {'attr': {'class': 'btn btn-primary'}}) }}
+        </div>
 
-    {{ form_end(categoryInsert) }}
+        {{ form_end(categoryInsert) }}
+    </div>
 
 {% endblock main %}
