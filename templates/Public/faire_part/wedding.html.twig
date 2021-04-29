@@ -5,12 +5,20 @@
 {% block main %}
     <div class="container mt-4">
         <h1>Faire part de mariage</h1>
-        <div class="row">
+        <div class="row flex">
             {% for faire_part in faire_parts %}{#boucle pour afficher tous les produits du tableau#}
                 <div class="col-sm-12 col-lg-6">
-                        <h2>{{ faire_part.name }}</h2>
-                        <p>{{ faire_part.description }}</p>
-                        <p>{{ faire_part.price }}</p>
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title">
+                                <a href="{{ path('public/faire_part/show', {'id':faire_part.id}) }}">{{ faire_part.name }}</a>
+                            </h2>
+{#
+                            <p class="card-text">{{ faire_part.description }}</p>
+#}
+                            <div class="text-primary" style="font-weight:bold; font-size: 2rem;">{{ faire_part.price }}€</div>
+                        </div>
+                    </div>
                 </div>
             {% endfor %}
         </div>
