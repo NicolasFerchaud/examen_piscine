@@ -33,6 +33,11 @@
         </div>
 
         <div class="mb-3">
+            {{ form_label(productUpdate.media, 'Image', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(productUpdate.media, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="mb-3">
             <div class="text-danger">
                 {{ form_errors(productUpdate.category) }}
             </div>

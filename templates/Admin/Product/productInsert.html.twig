@@ -5,7 +5,7 @@
 {% block main %}
 
     <div class="container mt-4">
-        <h1>Créer un produit</h1>
+        <h1>Modifier un produit</h1>
         {{ form_start(productInsert) }}
 
         <div class="mb-3">
@@ -30,6 +30,11 @@
             </div>
             {{ form_label(productInsert.price, 'Prix', {'label_attr': {'class': 'form-label'}}) }}
             {{ form_widget(productInsert.price, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(productInsert.media, 'Image', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(productInsert.media, {'attr': {'class': 'form-control'}}) }}
         </div>
 
         <div class="mb-3">

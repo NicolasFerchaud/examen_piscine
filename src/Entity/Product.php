@@ -41,7 +41,7 @@ class Product
     private $category;
 
     /**
-     * @ORM\OneToMany(targetEntity=Media::class, mappedBy="product")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $media;
 
@@ -103,33 +103,16 @@ class Product
         return $this;
     }
 
-    /**
-     * @return Collection|Media[]
-     */
-    public function getMedia(): Collection
+    public function getMedia(): ?string
     {
         return $this->media;
     }
 
-    public function addMedium(Media $medium): self
+    public function setMedia(string $media): self
     {
-        if (!$this->media->contains($medium)) {
-            $this->media[] = $medium;
-            $medium->setProduct($this);
-        }
+        $this->media = $media;
 
         return $this;
     }
 
-    public function removeMedium(Media $medium): self
-    {
-        if ($this->media->removeElement($medium)) {
-            // set the owning side to null (unless already changed)
-            if ($medium->getProduct() === $this) {
-                $medium->setProduct(null);
-            }
-        }
-
-        return $this;
-    }
 }

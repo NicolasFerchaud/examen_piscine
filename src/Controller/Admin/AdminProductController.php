@@ -11,6 +11,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AdminProductController extends AbstractController
 {
@@ -32,6 +33,7 @@ class AdminProductController extends AbstractController
      */
     public function productInsert(
         EntityManagerInterface $entityManager,
+        SluggerInterface $slugger,
         Request $request
     )
     {
@@ -40,6 +42,30 @@ class AdminProductController extends AbstractController
         $productForm->handleRequest($request);
         if ($productForm->isSubmitted() && $productForm->isValid()) {
             $product = $productForm->getData();
+
+            //je récupère les donnée de mon images
+            $imageFile = $productForm->get('media')->getData();
+            //si j'ai une image
+            if ($imageFile) {
+                //$imageFilename est un chemin vers le dossier temporaire de l'image
+                //je récupère son nom d'origine
+                $originalImage = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                //J'enlève les caractère spéciaux avec slug et je la renomme de facon unique grace à une extension
+                $safeFilename = $slugger->slug($originalImage);
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
+
+                try {//vérifie que tout ce passe bien (image bien renommé, bien déplacé etc...)
+                    $imageFile->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {//sinon on retourne une erreur
+                    throw $this->createNotFoundException("erreur lors de l'envoi de l'image");
+                }
+                //j'enregistre mon image avec le nouveau nom dans une variable
+                $product->setMedia($newFilename);
+
+            }
 
             $entityManager->persist($product);
             $entityManager->flush();
@@ -59,6 +85,7 @@ class AdminProductController extends AbstractController
     public function productUpdate(
         productRepository $productRepository,
         EntityManagerInterface $entityManager,
+        SluggerInterface $slugger,
         Request $request,
         $id
     )
@@ -72,6 +99,28 @@ class AdminProductController extends AbstractController
         $productForm->handleRequest($request);
         if ($productForm->isSubmitted() && $productForm->isValid()) {
             $product = $productForm->getData();
+
+            //récupère les images
+            $imageFile = $productForm->get('media')->getData();
+            //Si j'ai une image je récupère son nom d'origine
+            if ($imageFile) {
+                $originalImage = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                //J'enlève les caractère spéciaux avec slug et je la renomme de facon unique grace à une extension
+                $safeFilename = $slugger->slug($originalImage);
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
+
+                try {//vérifie que tout ce passe bien
+                    $imageFile->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {//sinon on retourne une erreur
+                    throw $this->createNotFoundException("erreur lors de l'envoi de l'image");
+                }
+
+                $product->setMedia($newFilename);
+
+            }
 
             $entityManager->persist($product);
             $entityManager->flush();
