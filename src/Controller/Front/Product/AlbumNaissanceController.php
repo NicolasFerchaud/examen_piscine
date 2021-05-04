@@ -19,36 +19,36 @@ class AlbumNaissanceController extends AbstractController
             ['category' => 98]
         );
 
-        return $this->render('Public/album_grossesse/unique.html.twig',[
-            'faire_parts' => $grosesseU,
-            'current_menu' => 'album_grossesse'
+        return $this->render('Public/album_naissance/unique.html.twig',[
+            'faire_parts' => $naissanceU,
+            'current_menu' => 'album_naissance'
         ]);
     }
 
     /**
-     * @Route("/album_grossesse/gemellaire", name="album_grossesse_gemellaire")
+     * @Route("/album_naissance/gemellaire", name="album_naissance_gemellaire")
      */
-    public function AlbumGrossesseGemellaire(ProductRepository $productRepository)
+    public function AlbumNaissanceGemellaire(ProductRepository $productRepository)
     {
-        $grosesseG = $productRepository->findBy(
-            ['category' => 97]
+        $naissanceG = $productRepository->findBy(
+            ['category' => 99]
         );
 
-        return $this->render('Public/album_grossesse/gemellaire.html.twig',[
-            'faire_parts' => $grosesseG,
-            'current_menu' => 'album_grossesse'
+        return $this->render('Public/album_naissance/gemellaire.html.twig',[
+            'faire_parts' => $naissanceG,
+            'current_menu' => 'album_naissance'
         ]);
     }
 
     /**
-     * @Route("/album_grossese/{id}", name="public/album_grossesse/show")
+     * @Route("/album_naissance/{id}", name="public/album_naissance/show")
      */
     public function show($id, ProductRepository $productRepository)
     {
         $detail = $productRepository->find($id);
-        return $this->render('Public/album_grossesse/detail.html.twig',[
+        return $this->render('Public/album_naissance/detail.html.twig',[
             'faire_part' => $detail,
-            'current_menu' => 'album_grossesse'
+            'current_menu' => 'album_naissance'
         ]);
     }
 }

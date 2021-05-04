@@ -41,7 +41,7 @@ class AlbumGrossesseController extends AbstractController
     }
 
     /**
-     * @Route("/album_grossese/{id}", name="public/album_grossesse/show")
+     * @Route("/album_grossesse/{id}", name="public/album_grossesse/show")
      */
     public function show($id, ProductRepository $productRepository)
     {
