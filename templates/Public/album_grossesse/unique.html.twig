@@ -1,3 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Album grossesse{% endblock %}
+
+{% block main %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Album grossesse unique</h1>
+        <div class="row flex">
+            {% for grossesse in grossesses %}{#boucle pour afficher tous les produits du tableau#}
+                <div class="col-sm-12 col-lg-6">
+                    <div class="card mb-4">
+                        {% if grossesse.media %}
+                            <div>
+                                <img class="resp" src="{{ asset('uploads/image_product/' ~ grossesse.media) }}" alt="{{ grossesse.name }}">
+                            </div>
+                        {% endif %}
+                        <div class="card-body">
+                            <h2 class="card-title">
+                                <a href="{{ path('public/album_grossesse/show', {'id':grossesse.id}) }}">{{ grossesse.name }}</a>
+                            </h2>
+                            {#
+                            <p class="card-text">{{ grossesse.description }}</p>
+                            #}
+                            <div class="text-primary" style="font-weight:bold; font-size: 2rem;">{{ grossesse.price }}€</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

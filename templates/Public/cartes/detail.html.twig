@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ faire_part.name }}{% endblock %}
+{% block title %}{{ cartes.name }}{% endblock %}
 
 {% block main %}
 
@@ -8,11 +8,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <img class="resp" src="{{ asset('uploads/image_product/' ~ faire_part.media) }}" alt="{{ faire_part.name }}">
+                    <img class="resp" src="{{ asset('uploads/image_product/' ~ cartes.media) }}" alt="{{ cartes.name }}">
                 </div>
                 <div class="col-md-4">
-                    <h1>{{ faire_part.name }}</h1>
-                    <div class="text-primary" style="font-size: 4rem; font-weight:bold;">{{ faire_part.price }}€</div>
+                    <h1>{{ cartes.name }}</h1>
+                    <div class="text-primary" style="font-size: 4rem; font-weight:bold;">{{ cartes.price }}€</div>
                     <a href="" class="btn btn-primary">Me contacter</a>
                 </div>
             </div>
@@ -20,7 +20,7 @@
     </div>
     <div class="container mt-4">
         <h3>Description :</h3>
-        <p>{{ faire_part.description | nl2br }}</p>{#nl2br = filtre saut de ligne auto, si présent dans le contenu#}
+        <p>{{ cartes.description | nl2br }}</p>{#nl2br = filtre saut de ligne auto, si présent dans le contenu#}
     </div>
 
 {% endblock %}

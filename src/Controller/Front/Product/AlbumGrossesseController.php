@@ -20,7 +20,7 @@ class AlbumGrossesseController extends AbstractController
         );
 
         return $this->render('Public/album_grossesse/unique.html.twig',[
-            'faire_parts' => $grosesseU,
+            'grossesses' => $grosesseU,
             'current_menu' => 'album_grossesse'
         ]);
     }
@@ -35,7 +35,7 @@ class AlbumGrossesseController extends AbstractController
         );
 
         return $this->render('Public/album_grossesse/gemellaire.html.twig',[
-            'faire_parts' => $grosesseG,
+            'grossesses' => $grosesseG,
             'current_menu' => 'album_grossesse'
         ]);
     }
@@ -47,7 +47,7 @@ class AlbumGrossesseController extends AbstractController
     {
         $detail = $productRepository->find($id);
         return $this->render('Public/album_grossesse/detail.html.twig',[
-            'faire_part' => $detail,
+            'grossesses' => $detail,
             'current_menu' => 'album_grossesse'
         ]);
     }

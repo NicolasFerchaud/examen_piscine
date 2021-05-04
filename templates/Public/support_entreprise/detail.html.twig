@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ support_entreprise.name }}{% endblock %}
+
+{% block main %}
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <img class="resp" src="{{ asset('uploads/image_product/' ~ support_entreprise.media) }}" alt="{{ support_entreprise.name }}">
+                </div>
+                <div class="col-md-4">
+                    <h1>{{ support_entreprise.name }}</h1>
+                    <div class="text-primary" style="font-size: 4rem; font-weight:bold;">{{ support_entreprise.price }}€</div>
+                    <a href="" class="btn btn-primary">Me contacter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <h3>Description :</h3>
+        <p>{{ support_entreprise.description | nl2br }}</p>{#nl2br = filtre saut de ligne auto, si présent dans le contenu#}
+    </div>
+
+{% endblock %}
+

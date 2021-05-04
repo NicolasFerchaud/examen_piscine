@@ -35,7 +35,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'album_grossesse' %}active{% endif %} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                             Album grossesse
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -44,7 +44,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'album_naissance' %}active{% endif %} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                             Album naisssance
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -53,38 +53,38 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'impression_photo' %}active{% endif %} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                             Impression photos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Photos 10x15 cm</a></li>
-                            <li><a class="dropdown-item" href="#">Poster A3</a></li>
-                            <li><a class="dropdown-item" href="#">Boule de Noël</a></li>
-                            <li><a class="dropdown-item" href="#">Hexagone</a></li>
+                            <li><a class="dropdown-item" href="{{ path('public/impression_photo/photo') }}">Photos 10x15 cm</a></li>
+                            <li><a class="dropdown-item" href="{{ path('public/impression_photo/poster') }}">Poster A3</a></li>
+                            <li><a class="dropdown-item" href="{{ path('public/impression_photo/boule') }}">Boule de Noël</a></li>
+                            <li><a class="dropdown-item" href="{{ path('public/impression_photo/hexagone') }}">Hexagone</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'support_entreprise' %}active{% endif %} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                             Support d'entreprise
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Planches tarifaire</a></li>
-                            <li><a class="dropdown-item" href="#">Cartes de visite</a></li>
-                            <li><a class="dropdown-item" href="#">Annonces publicitaire</a></li>
-                            <li><a class="dropdown-item" href="#">Flyers</a></li>
+                            <li><a class="dropdown-item" href="{{ path('public/support_entreprise/planches_tarifaire') }}">Planches tarifaire</a></li>
+                            <li><a class="dropdown-item" href="{{ path('public/support_entreprise/carte_de_visite') }}">Cartes de visite</a></li>
+                            <li><a class="dropdown-item" href="{{ path('public/support_entreprise/annonces_publicitaire') }}">Annonces publicitaire</a></li>
+                            <li><a class="dropdown-item" href="{{ path('public/support_entreprise/flyers') }}">Flyers</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'cartes' %}active{% endif %} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                             Cartes
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Anniversaire</a></li>
-                            <li><a class="dropdown-item" href="#">Babyshower</a></li>
-                            <li><a class="dropdown-item" href="#">Noël</a></li>
-                            <li><a class="dropdown-item" href="#">Nouvel an</a></li>
-                            <li><a class="dropdown-item" href="#">Félicitations</a></li>
-                            <li><a class="dropdown-item" href="#">Remerciements</a></li>
+                            <li><a class="dropdown-item" href="{{ path('public/cartes/anniversaire') }}">Anniversaire</a></li>
+                            <li><a class="dropdown-item" href="{{ path('public/cartes/babyshower') }}">Babyshower</a></li>
+                            <li><a class="dropdown-item" href="{{ path('public/cartes/noel') }}">Noël</a></li>
+                            <li><a class="dropdown-item" href="{{ path('public/cartes/nouvel_an') }}">Nouvel an</a></li>
+                            <li><a class="dropdown-item" href="{{ path('public/cartes/felicitation') }}">Félicitations</a></li>
+                            <li><a class="dropdown-item" href="{{ path('public/cartes/remerciement') }}">Remerciements</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -8,7 +8,12 @@
         <div class="row flex">
             {% for faire_part in faire_parts %}{#boucle pour afficher tous les produits du tableau#}
                 <div class="col-sm-12 col-lg-6">
-                    <div class="card">
+                    <div class="card mb-4">
+                        {% if faire_part.media %}
+                            <div>
+                                <img class="resp" src="{{ asset('uploads/image_product/' ~ faire_part.media) }}" alt="{{ faire_part.name }}">
+                            </div>
+                        {% endif %}
                         <div class="card-body">
                             <h2 class="card-title">
                                 <a href="{{ path('public/faire_part/show', {'id':faire_part.id}) }}">{{ faire_part.name }}</a>

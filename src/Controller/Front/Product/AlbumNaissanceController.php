@@ -20,7 +20,7 @@ class AlbumNaissanceController extends AbstractController
         );
 
         return $this->render('Public/album_naissance/unique.html.twig',[
-            'faire_parts' => $naissanceU,
+            'naissances' => $naissanceU,
             'current_menu' => 'album_naissance'
         ]);
     }
@@ -35,7 +35,7 @@ class AlbumNaissanceController extends AbstractController
         );
 
         return $this->render('Public/album_naissance/gemellaire.html.twig',[
-            'faire_parts' => $naissanceG,
+            'naissances' => $naissanceG,
             'current_menu' => 'album_naissance'
         ]);
     }
@@ -47,7 +47,7 @@ class AlbumNaissanceController extends AbstractController
     {
         $detail = $productRepository->find($id);
         return $this->render('Public/album_naissance/detail.html.twig',[
-            'faire_part' => $detail,
+            'naissances' => $detail,
             'current_menu' => 'album_naissance'
         ]);
     }

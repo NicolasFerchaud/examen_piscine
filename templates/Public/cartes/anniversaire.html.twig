@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cartes{% endblock %}
+
+{% block main %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Anniversaire</h1>
+        <div class="row flex">
+            {% for carte in cartes %}{#boucle pour afficher tous les produits du tableau#}
+                <div class="col-sm-12 col-lg-6">
+                    <div class="card mb-4">
+                        {% if carte.media %}
+                            <div>
+                                <img class="resp" src="{{ asset('uploads/image_product/' ~ carte.media) }}" alt="{{ carte.name }}">
+                            </div>
+                        {% endif %}
+                        <div class="card-body">
+                            <h2 class="card-title">
+                                <a href="{{ path('public/cartes/show', {'id':carte.id}) }}">{{ carte.name }}</a>
+                            </h2>
+                            {#
+                            <p class="card-text">{{ carte.description }}</p>
+                            #}
+                            <div class="text-primary" style="font-weight:bold; font-size: 2rem;">{{ carte.price }}€</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

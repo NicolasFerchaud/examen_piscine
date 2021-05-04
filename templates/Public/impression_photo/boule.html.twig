@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Impression photo{% endblock %}
+
+{% block main %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Boule de Noël</h1>
+        <div class="row flex">
+            {% for impression_photo in impression_photos %}{#boucle pour afficher tous les produits du tableau#}
+                <div class="col-sm-12 col-lg-6">
+                    <div class="card mb-4">
+                        {% if impression_photo.media %}
+                            <div>
+                                <img class="resp" src="{{ asset('uploads/image_product/' ~ impression_photo.media) }}" alt="{{ impression_photo.name }}">
+                            </div>
+                        {% endif %}
+                        <div class="card-body">
+                            <h2 class="card-title">
+                                <a href="{{ path('public/impression_photo/show', {'id':impression_photo.id}) }}">{{ impression_photo.name }}</a>
+                            </h2>
+                            {#
+                            <p class="card-text">{{ impression_photo.description }}</p>
+                            #}
+                            <div class="text-primary" style="font-weight:bold; font-size: 2rem;">{{ impression_photo.price }}€</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
