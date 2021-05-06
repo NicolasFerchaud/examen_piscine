@@ -16,16 +16,16 @@
                     <tr>
                         <td class="align-middle">{{ category.name }}</td>
                         <td>
-                            <a href="{{ path('categories/update',{'id':category.id}) }}"><input type="button" class="btn btn-warning" value="Modifier"></a>
-                            <a id="delete" href="{{ path('categories/delete',{'id':category.id}) }}"><input type="button" class="btn btn-danger" value="Supprimer"></a>
+                            <a href="{{ path('categoryUpdate',{'id':category.id}) }}"><input type="button" class="btn btn-warning" value="Modifier"></a>
+                            <a id="delete" href="{{ path('categoryDelete',{'id':category.id}) }}"><input type="button" class="btn btn-danger" value="Supprimer"></a>
                         </td>
                         <tbody>
                             {% for child in category.children %}
                                 <tr>
                                     <td class="text-primary pl-5 align-middle">{{ child.name }}</td>
                                     <td>
-                                        <a href="{{ path('categories/update',{'id':child.id}) }}"><input type="button" class="btn btn-warning" value="Modifier"></a>
-                                        <a id="delete" href="{{ path('categories/delete',{'id':child.id}) }}"><input type="button" class="btn btn-danger" value="Supprimer"></a>
+                                        <a href="{{ path('categoryUpdate',{'id':child.id}) }}"><input type="button" class="btn btn-warning" value="Modifier"></a>
+                                        <a id="delete" href="{{ path('categoryDelete',{'id':child.id}) }}"><input type="button" class="btn btn-danger" value="Supprimer"></a>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -35,7 +35,7 @@
             </tbody>
         </table>
         <div class="text-right">
-            <a href="{{ path('categories/insert') }}"><input type="button" class="btn btn-success" value="Créer une catégorie"></a>
+            <a href="{{ path('categoryInsert') }}"><input type="button" class="btn btn-success" value="Créer une catégorie"></a>
         </div>
 
 {% endblock main %}

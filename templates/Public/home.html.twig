@@ -4,8 +4,28 @@
 
 {% block main %}
     <div class="jumbotron text-center">
-        <h1 class="card-title">À mon image</h1>
-        <p class="card-text">Immortalisez vos souvenirs avec des créations uniques et entièrement personnalisées</p>
+        <h1 class="card-title home">A mon image</h1>
+        <p class="card-text home">Immortalisez vos souvenirs avec des créations uniques et entièrement personnalisées</p>
+    </div>
+    <div class="container mb-4">
+        <div id="carouselHomeInterval" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-interval="5000">
+                    <img src="{{ asset('Assets/images/qui-je-suis.png') }}" class="d-block w-100" alt="Une description de moi">
+                </div>
+                <div class="carousel-item" data-interval="5000">
+                    <img src="{{ asset('Assets/images/made-in-france.png') }}" class="d-block w-100" alt="Made in France">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselHomeInterval" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselHomeInterval" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
     </div>
 {% endblock %}
 

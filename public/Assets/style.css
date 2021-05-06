@@ -5,7 +5,42 @@
 .text-primary{
     color: rgb(164, 58, 58)!important;
 }*/
+@font-face {
+    font-family: "a Auto Signature";
+    src: url("Fonts/AutoSignature.otf");
+}
 .resp{
     width: 100%;
     height: auto;
+}
+h1.home{
+    font-family: "a Auto Signature", sans-serif;
+    font-size: 5em;
+    color: #A62B17;
+}
+p.home{
+    font-family: sans-serif;
+    font-size: 1.5em;
+}
+.logo{
+    width: 6%;
+}
+.rond{
+    border-radius: 50%;
+}
+.nav{
+    font-size: 1.3em;
+}
+header, footer{
+    background-color: #A62B17;
+}
+.reseaux{
+    width: 30px;
+    height: 30px;
+}
+.bordeaux{
+    color: #A62B17;
+}
+h1.bordeaux{
+    font-family: sans-serif;
 }

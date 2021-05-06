@@ -13,19 +13,17 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<header>
+    <nav class="navbar navbar-expand-xl navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ path('home') }}">À mon image</a>
+            <a class="navbar-brand logo" href="{{ path('home') }}"><img class="resp rond" src="{{ asset('Assets/images/logo marjo.jpg') }}" alt="Logo du site"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    {#<li class="nav-item">
-                        <a class="nav-link {% if current_menu is defined and current_menu == 'categories' %}active{% endif %}" aria-current="page" href="{{ path('public/categories/list') }}">Catégories</a>
-                    </li>#}
                     <li class="nav-item dropdown">
-                        <a class="nav-link {% if current_menu is defined and current_menu == 'faire_part' %}active{% endif %} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'faire_part' %}active{% endif %} dropdown-toggle nav" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                             Faire part
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -35,7 +33,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link {% if current_menu is defined and current_menu == 'album_grossesse' %}active{% endif %} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'album_grossesse' %}active{% endif %} dropdown-toggle nav" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                             Album grossesse
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -44,7 +42,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link {% if current_menu is defined and current_menu == 'album_naissance' %}active{% endif %} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'album_naissance' %}active{% endif %} dropdown-toggle nav" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                             Album naisssance
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -53,7 +51,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link {% if current_menu is defined and current_menu == 'impression_photo' %}active{% endif %} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'impression_photo' %}active{% endif %} dropdown-toggle nav" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                             Impression photos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -64,7 +62,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link {% if current_menu is defined and current_menu == 'support_entreprise' %}active{% endif %} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'support_entreprise' %}active{% endif %} dropdown-toggle nav" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                             Support d'entreprise
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -75,7 +73,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link {% if current_menu is defined and current_menu == 'cartes' %}active{% endif %} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'cartes' %}active{% endif %} dropdown-toggle nav" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                             Cartes
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -91,6 +89,7 @@
             </div>
         </div>
     </nav>
+</header>
 
     {# je regarde si des messages flashs ont été ajoutés à la session, si oui je les affiche #}
     {% for message in app.flashes('success') %}
@@ -100,6 +99,42 @@
     {% endfor %}
 
     {% block main %}{% endblock main %}
+
+<footer>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand logo d-none d-lg-block" href="{{ path('home') }}"><img class="resp rond" src="{{ asset('Assets/images/logo marjo.jpg') }}" alt="Logo du site"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link nav" href="#">CGV</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav" href="#">Mentions légales</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav" href="#">Données personnelles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav" href="#">Livraison</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <a target="_blank" class="navbar-brand reseaux" href="https://www.instagram.com/amonimage__/">
+                <img class="resp" src="{{ asset('Assets/images/instagram.svg') }}" alt="Logo Instagram">
+            </a>
+            <a target="_blank" class="navbar-brand reseaux" href="#">
+                <img class="resp" src="{{ asset('Assets/images/facebook.svg') }}" alt="Logo Facebook">
+            </a>
+            <a class="navbar-brand reseaux">
+                <img class="resp" src="{{ asset('Assets/images/france.svg') }}" alt="Logo made in France">
+            </a>
+        </div>
+    </nav>
+</footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>

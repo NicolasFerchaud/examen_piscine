@@ -16,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AdminCategoryController extends AbstractController
 {
     /**
-     * @Route ("/admin/categories/list", name="categories/list")
+     * @Route ("/admin/categoryList", name="categoryList")
      */
     public function categoryList(categoryRepository $categoryRepository)
     {
@@ -31,7 +31,7 @@ class AdminCategoryController extends AbstractController
     }
 
     /**
-     * @Route ("/admin/categories/insert", name="categories/insert")
+     * @Route ("/admin/categoryInsert", name="categoryInsert")
      */
     public function categoryInsert(
         EntityManagerInterface $entityManager,
@@ -48,7 +48,7 @@ class AdminCategoryController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash("success", "La catégorie " . $category->getName() . " à bien était créée");
-            return $this->redirectToRoute('categories/list');
+            return $this->redirectToRoute('categoryList');
         }
         return $this->render('Admin/Category/categoryInsert.html.twig',[
            'categoryInsert' => $categoryForm->createView(),
@@ -57,7 +57,7 @@ class AdminCategoryController extends AbstractController
     }
 
     /**
-     * @Route ("/admin/categories/update/{id}", name="categories/update")
+     * @Route ("/admin/categoryUpdate/{id}", name="categoryUpdate")
      */
     public function categoryUpdate(
         categoryRepository $categoryRepository,
@@ -80,7 +80,7 @@ class AdminCategoryController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash("success", "La catégorie " . $category->getName() . " à bien était modifiée");
-            return $this->redirectToRoute('categories/list');
+            return $this->redirectToRoute('categoryList');
         }
         return $this->render('Admin/Category/categoryUpdate.html.twig',[
             'categoryUpdate' => $categoryForm->createView(),
@@ -89,7 +89,7 @@ class AdminCategoryController extends AbstractController
     }
 
     /**
-     * @Route("/admin/categories/delete/{id}", name="categories/delete")
+     * @Route("/admin/categoryDelete/{id}", name="categoryDelete")
      */
     public function categoryDelete(
         categoryRepository $categoryRepository,
@@ -105,6 +105,6 @@ class AdminCategoryController extends AbstractController
        $entityManager->flush();
 
         $this->addFlash("success", "La catégorie " . $category->getName() . " à bien était supprimée");
-        return $this->redirectToRoute('categories/list');
+        return $this->redirectToRoute('categoryList');
     }
 }
