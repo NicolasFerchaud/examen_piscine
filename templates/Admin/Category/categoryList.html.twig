@@ -7,8 +7,8 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>Nom de la catégorie</th>
-                <th>Actions</th>
+                <th class="bordeaux">Nom de la catégorie</th>
+                <th class="bordeaux">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -22,7 +22,7 @@
                         <tbody>
                             {% for child in category.children %}
                                 <tr>
-                                    <td class="text-primary pl-5 align-middle">{{ child.name }}</td>
+                                    <td class="bordeaux pl-5 align-middle">{{ child.name }}</td>
                                     <td>
                                         <a href="{{ path('categoryUpdate',{'id':child.id}) }}"><input type="button" class="btn btn-warning" value="Modifier"></a>
                                         <a id="delete" href="{{ path('categoryDelete',{'id':child.id}) }}"><input type="button" class="btn btn-danger" value="Supprimer"></a>
@@ -35,7 +35,7 @@
             </tbody>
         </table>
         <div class="text-right">
-            <a href="{{ path('categoryInsert') }}"><input type="button" class="btn btn-success" value="Créer une catégorie"></a>
+            <a href="{{ path('categoryInsert') }}"><input type="button" class="btn btn-success mb-4" value="Créer une catégorie"></a>
         </div>
-
+    </div>
 {% endblock main %}

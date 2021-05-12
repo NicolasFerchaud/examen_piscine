@@ -11,15 +11,15 @@
                     <img class="resp" src="{{ asset('uploads/image_product/' ~ grossesses.media) }}" alt="{{ grossesses.name }}">
                 </div>
                 <div class="col-md-4">
-                    <h1>{{ grossesses.name }}</h1>
-                    <div class="text-primary" style="font-size: 4rem; font-weight:bold;">{{ grossesses.price }}€</div>
-                    <a href="" class="btn btn-primary">Me contacter</a>
+                    <h1 class="bordeaux">{{ grossesses.name }}</h1>
+                    <div class="bordeaux">{{ grossesses.price }}€</div>
+                    <a href="" class="btn btn-bordeaux">Me contacter</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="container mt-4">
-        <h3>Description :</h3>
+        <h3 class="bordeaux">Description :</h3>
         <p>{{ grossesses.description | nl2br }}</p>{#nl2br = filtre saut de ligne auto, si présent dans le contenu#}
     </div>
 

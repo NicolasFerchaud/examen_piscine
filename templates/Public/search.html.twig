@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche{% endblock %}
+
+{% block main %}
+
+    {% if search | length > 0 %}{#si ma recherche à des similitude avec ma bdd alors j'affiche les articles correspondant#}
+        <div class="container mt-4">
+            <h1 class="mb-4 bordeaux">Recherche</h1>
+            <div class="row flex">
+                {% for product in search %}{#boucle pour afficher tous les produits du tableau#}
+                    <div class="col-sm-12 col-lg-6">
+                        <div class="card mb-4">
+                            {% if product.media %}
+                                <div>
+                                    <img class="resp" src="{{ asset('uploads/image_product/' ~ product.media) }}" alt="{{ product.name }}">
+                                </div>
+                            {% endif %}
+                            <div class="card-body">
+                                <h2 class="card-title">
+                                    <a class="bordeaux" href="{{ path('public/faire_part/show', {'id':product.id}) }}">{{ product.name }}</a>
+                                </h2>
+                                <div class="bordeaux">{{ product.price }}€</div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    {% else %}{#sinon je dis qu'il y a pas de résultat#}
+        <p>Aucun produit trouvé pour cette recherche</p>
+    {% endif %}
+
+{% endblock main %}

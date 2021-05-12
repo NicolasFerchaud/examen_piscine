@@ -4,7 +4,7 @@
 
 {% block main %}
     <div class="container mt-4">
-        <h1 class="mb-4">Faire part de naissance</h1>
+        <h1 class="mb-4 bordeaux">Faire part de naissance</h1>
         <div class="row flex">
             {% for faire_part in faire_parts %}{#boucle pour afficher tous les produits du tableau#}
                 <div class="col-sm-12 col-lg-6">
@@ -16,12 +16,9 @@
                         {% endif %}
                         <div class="card-body">
                             <h2 class="card-title">
-                                <a href="{{ path('public/faire_part/show', {'id':faire_part.id}) }}">{{ faire_part.name }}</a>
+                                <a class="bordeaux" href="{{ path('public/faire_part/show', {'id':faire_part.id}) }}">{{ faire_part.name }}</a>
                             </h2>
-{#
-                            <p class="card-text">{{ faire_part.description }}</p>
-#}
-                            <div class="text-primary" style="font-weight:bold; font-size: 2rem;">{{ faire_part.price }}€</div>
+                            <div class="bordeaux">{{ faire_part.price }}€</div>
                         </div>
                     </div>
                 </div>
