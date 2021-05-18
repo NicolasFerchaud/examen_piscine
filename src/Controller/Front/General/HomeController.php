@@ -24,4 +24,9 @@ class HomeController extends AbstractController
             'products'=> $products//je créé une variable qui à pour valeur le contenu de $products
         ]);
     }*/
+    public function index()
+    {
+        return $this->render('Public/home.html.twig',[
+        ]);
+    }
 }
