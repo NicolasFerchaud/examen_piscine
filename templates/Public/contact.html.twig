@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Me contacter{% endblock %}
+
+{% block main %}
+
+    <div class="container mt-4">
+        <h1>Votre commande</h1>
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Votre adresse mail</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nom@exemple.com">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Couleur du papier</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>Blanc mat</option>
+                    <option>Blanc brillant</option>
+                    <option>Rouge mat</option>
+                    <option>Rouge brillant</option>
+                    <option>Noir mat</option>
+                    <option>Noir brillant</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Quantité souhaitée</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>1</option>
+                    <option>10</option>
+                    <option>25</option>
+                    <option>50</option>
+                    <option>100</option>
+                    <option>Personnaliser (précisez dans Personnalisation)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Personnalisation</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Nom de la personne, âge, message, quantité..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-bordeaux mt-4 mb-4">Envoyer</button>
+
+        </form>
+    </div>
+
+{% endblock main %}

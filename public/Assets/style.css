@@ -41,6 +41,11 @@ div.bordeaux{
     font-weight: bold;
     font-size: 2rem;
 }
+div.detail{
+    font-weight: bold;
+    font-size: 4rem;
+    color: #A62B17
+}
 .btn-bordeaux{
     background-color: #A62B17;
     color: white;
