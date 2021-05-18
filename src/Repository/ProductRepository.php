@@ -27,12 +27,12 @@ class ProductRepository extends ServiceEntityRepository
         */
         $queryBuilder = $this->createQueryBuilder('p');
         $query = $queryBuilder
-            //je fais un SELECT sur l'alias 'a'(table article)
+            //je fais un SELECT sur l'alias 'p'(table product)
             ->select('p')
             //si le content
-            ->where('p.content LIKE :search')
+            ->where('p.description LIKE :search')
             //ou le title contiennent un équivalent de la recherche dans 'search'
-            ->orWhere('p.title LIKE :search')
+            ->orWhere('p.name LIKE :search')
             // j'indique que search correspond à la variable $search (donc la recherche du user) entre deux '%' pour rechercher
             // une similitude n'importe ou dans le contenu ou le title (LIKE SQL)
             ->setParameter('search', '%'.$search.'%')
