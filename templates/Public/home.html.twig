@@ -27,10 +27,10 @@
             </a>
         </div>
     </div>
-    <div class="container mt-4">
+    {#<div class="container mt-4">
         <h1 class="mb-4 bordeaux">Dernière création</h1>
         <div class="row flex justify-content-center">
-            {% for product in products %}{#boucle pour afficher tous les produits du tableau#}
+            {% for product in products %}#}{#boucle pour afficher tous les produits du tableau#}{#
                 <div class="col-sm-12 col-lg-6">
                     <div class="card mb-4">
                         {% if product.media %}
@@ -48,6 +48,6 @@
                 </div>
             {% endfor %}
         </div>
-    </div>
+    </div>#}
 {% endblock %}
 
